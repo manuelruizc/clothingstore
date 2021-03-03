@@ -1,0 +1,64 @@
+<div class="collection-banner-container">
+  {% if collection.image %}
+    <div class="collection-fader">
+      <h1>{{ collection.title }}</h1>
+    </div>
+  {% else %}
+    <div class="collection-fader" style="background: none;">
+      <h1>{{ collection.title }}</h1>
+    </div>
+  {% endif %}
+  {% if collection.image %}
+    <img src="{{ collection.image | img_url: '1024x' }}">
+  {% else %}
+    <div class="collection-noimage-background"></div>
+  {% endif %}
+</div>
+
+{% paginate collection.products by 8 %}
+  <!-- <h1>{{ collection.title }}</h1> -->
+  <div class="items-container">
+  {% for product in collection.products %}
+    <div class="item-container">
+      {% if product.compare_at_price > 0 %}
+      <span class="discount-tag">En descuento</span>
+      {% endif %}
+      {% if product.featured_image %}
+      <a href="{{ product.url | within: collection }}" title="{{ product.title | escape }}">
+        {{ product.featured_image.src | img_url: 'medium' | img_tag: product.featured_image.alt }}
+      </a>
+      {% endif %}
+      <h5 class="product-thumb-title">{{ product.title | link_to: product.url }}</h5>
+      {% if product.compare_at_price > 0 %}
+      <span class="product-price">
+        <span style="text-decoration: line-through; opacity: 0.56;">${{ product.compare_at_price || money_without_currency }} MXN </span>
+        <span style="color:#d32f2f;">&nbsp;{{product.price_min | | money_without_currency}} MXN</span>
+      {% else %}
+      <span class="product-price">${{product.price_min | | money_without_currency}} MXN 
+      {% endif %}
+      </span>
+      <a href="javascript:void(0)" class="add-to-cart-anchor" data-id="{% for variant in product.variants %} {% if forloop.first == true %} {{variant.id}} {% endif %}  {% endfor %}">AGREGAR AL CARRITO</a>
+    </div>
+  {% endfor %}
+  </div>
+  {% if paginate.pages > 1 %}
+    <div class="pagination-container">
+      {{ paginate | default_pagination }}
+    </div>
+  {% endif %}
+{% endpaginate %}
+
+
+
+
+
+<!--
+<div>
+      <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+      {{ product.price | money }}
+      {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+      <a href="{{ product.url | within: collection }}">
+        <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+      </a>
+    </div>
+-->

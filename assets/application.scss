@@ -1,0 +1,637 @@
+$main_color: #000000;
+$secondary_color: #FFFFFF;
+$terciary_color: #888B8D;
+
+@mixin phone {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+
+@mixin tablet-portrait {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+
+@mixin tablet-landscape {
+    @media (min-width: 900px) and (max-width:1100px) {
+        @content;
+    }
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+}
+body, html {
+    padding-top: 10vh;
+    background-color: white;
+    width: 100%;
+    @include phone {
+        padding-top: 8vh;
+    }
+}
+.cart-visible-background {
+    background-color: rgba(0, 0, 0, 0.33);
+}
+.hidden-overflow {
+    overflow: hidden;
+    @include phone {
+        overflow: auto;
+    }
+}
+#cartContainer {
+    pointer-events: none;
+    width:100%;
+    height:100vh;
+    position:fixed;
+    top:0;
+    right:0;
+    overflow-x: hidden;
+    transition: .45s ease-in-out all;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    #exit-cart {
+        width: 100%;
+        height: 100%;
+        position:absolute;
+        top: 0;
+        left: 0;
+        z-index: 101;
+        transition: 0.3s linear all;
+        transform: translateX(110%);
+    }
+    .cart-container {
+        transform: translateX(110%);
+        width:50%;
+        height:100vh;
+        background-color: $secondary_color;
+        overflow: auto;
+        z-index: 102;
+        padding: 39px 30px;
+        transition: .45s ease-in-out all;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include phone {
+            width: 100%;
+            padding: 10px;
+            justify-content: flex-start;
+        }
+        .cart-header-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items:center;
+            @include phone {
+                margin-bottom: 25px;
+            }
+            a {
+                text-decoration: none;
+                color: rgba(0, 0, 0, 0.6);
+                @include phone {
+                    font-size: 0.7em;
+                }
+            }
+            h2 {
+                @include phone {
+                    font-size: 0.9em;
+                }
+            }
+        }
+        .products-fx-cart {
+            width: 100%;
+            height: 70%;
+            overflow-y: auto;
+            @include phone {
+                height: 60%;
+                margin-bottom: 20px;
+            }
+            .product-container-cart {
+                width: 100%;
+                height: 22vh;
+                display: flex;
+                justify-content: space-between;
+                align-items:center;
+                margin-bottom: 40px;
+                @include phone {
+                    height: 18vh;
+                }
+                img {
+                    width: 22vh;
+                    height: 100%;
+                    object-fit: cover;
+                    @include phone {
+                        width: 18vh;
+                    }
+                }
+                .containers-container {
+                    width: 80%;
+                    padding: 4px 6px;
+                    height: 100%;
+                    display:flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    @include phone {
+                        align-items: flex-end;
+                    }
+                    .cart-first-container {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items:center;
+                        .title {
+                            font-size: 0.75em;
+                            width: 80%;
+                            text-transform: uppercase;
+                            font-weight: 500;
+                            @include phone {
+                                font-size: 0.55em;
+                                width: 70%;
+                            }
+                        }
+                        a {
+                            text-transform: uppercase;
+                            font-weight: 600;
+                            text-decoration: none;
+                            color: rgba(0, 0, 0, 0.24);
+                            @include phone {
+                                font-size: 0.7em;
+                            }
+                        }
+                    }
+                    .cart-second-container {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items:center;
+                        margin-top:-8%;
+                        span {
+                            font-size: 0.9em;
+                            font-weight: 600;
+                            color: rgba(0, 0, 0, 0.7);
+                            span.tagged {
+                                text-decoration: line-through;
+                            }
+                            @include phone {
+                                font-size: 0.7em;
+                            }
+                        }
+                    }
+                    .cart-third-container {
+                        width: 100%;
+                        display: flex;
+                        justify-content: flex-end;
+                        align-items:center;
+                        div {
+                            width: 100px;
+                            height: 28px;
+                            display: flex;
+                            justify-content: center;
+                            align-items:center;
+                            border: 1pt solid rgba(0, 0, 0, 0.24);
+                            @include phone {
+                                width: 80px;
+                                height: 24px;
+                            }
+                            a {
+                                width: 33.3333333%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center; align-items: center;
+                                text-decoration: none;
+                                color: black;
+                            }
+                            span {
+                                width: 33.3333333%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center; align-items: center;
+                                @include phone {
+                                    font-size: 0.8em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .cart-price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: auto;
+        }
+        .cart-price-checkout {
+            width: 100%;
+            height: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $main_color;
+            text-decoration: none;
+            color: $secondary_color;
+            font-weight: 700;
+        }
+    }
+}
+.pointer-events {
+    pointer-events: all !important;
+}
+.cart-visible {
+    display:flex !important;
+    transform: translateX(0) !important;
+}
+
+.thumbnail-selected {
+    border: 2pt solid $main_color;
+    // transition: 0.25s ease-in-out all;
+}
+
+.thumbnail-link {
+    width:100%;
+    height: 40px;
+    display:flex;
+    margin-bottom: 15px;
+    @include phone {
+        height: 100%;
+        width: 40px;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.top-message {
+    width: 100%;
+    height: 7vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: $main_color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    @include phone {
+        height: 7vh;
+    }
+    span {
+        color: $secondary_color;
+        text-transform: uppercase;
+        font-weight: 400;
+        font-size: 0.9em;
+        @include phone {
+            font-size: 0.7em;
+            font-weight: 600;
+            text-align: center;
+        }
+    }
+}
+
+
+.nav-container {
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position:fixed;
+    top: 7vh;
+    left: 0;
+    background-color: white;
+    z-index: 50;
+    .cartandlogo-container {
+        width: 100%;
+        height: 12vh;
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 35px;
+        @include phone {
+            height: 10.5vh;
+            background-color: $secondary_color;
+            padding: 0px 12px;
+        }
+        #carrito {
+            color:$main_color;
+            transition: 0.3s linear all;
+            &:hover {
+                color: $terciary_color;
+            }
+            i {
+                font-size: 1.3em;
+            }
+        }
+        #menu-burger {
+            display: none;
+            @include phone {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                height: 21.5px;
+                width: auto;
+            }
+        }
+        .menu-burger {
+            display: none;
+            cursor: pointer;
+            @include phone {
+                display: flex;
+                font-size: 1em;
+                width: 26px;
+                height: 2.5px;
+                background-color: $main_color;
+                position: relative;
+                transition: 0.3s ease-in-out all;
+                &:after {
+                    content: "";
+                    position: absolute;
+                    top: 0; left: 0;
+                    transform: translateY(7px);
+                    width: 100%;
+                    height: 100%;
+                    background-color: inherit;
+                    transition: 0.3s ease-in-out all;
+                }
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0; left: 0;
+                    transform: translateY(-7px);
+                    width: 100%;
+                    height: 100%;
+                    background-color: inherit;
+                    transition: 0.3s ease-in-out all;
+                }
+            }
+        }
+        #menu-burger {
+            z-index: 25;
+        }
+        .active-burger:after {
+            transform: rotate(45deg);
+            z-index: 25;
+            background-color: $main_color !important;
+        }
+        .active-burger:before {
+            transform: rotate(-45deg);
+            z-index: 25;
+            background-color: $main_color !important;
+        }
+        .active-burger {
+            z-index: 25;
+            background-color: transparent;
+        }
+        .logo-container {
+            width: 15%;
+            height: 86%;
+            transition: 0.3s ease-in-out all;
+            @include phone {
+                width: 30%;
+                height: 65%;
+            }
+            svg {
+                width: 100%;
+                height: 100%;
+                &:hover .st1 {
+                    fill: black;
+                    stroke: black;
+                }
+                &:hover .letter-c {
+                    fill: #3F51B5;
+                    stroke: #3F51B5;
+                }
+                &:hover .letter-w {
+                    fill: #D84315;
+                    stroke: #D84315;
+                }
+                &:hover .letter-a {
+                    transform: translateX(-8%);
+                    opacity: 0;
+                }
+                &:hover .letter-m {
+                    transform: translateX(-18%);
+                    opacity: 0;
+                }
+                &:hover .letter-w {
+                    transform: translateX(-20.3%);
+                }
+                &:hover .letter-o {
+                    transform: translateX(-40%);
+                    opacity: 0;
+                }
+                .letter-c, .letter-w {
+                    z-index:3;
+                }
+                .scrolled-letter-a {
+                    transform: translateX(-8%);
+                    opacity: 0;
+                }
+                .scrolled-letter-m {
+                    transform: translateX(-18%);
+                    opacity: 0;
+                }
+                .scrolled-letter-w {
+                    transform: translateX(-20.3%);
+                }
+                .scrolled-letter-o {
+                    transform: translateX(-40%);
+                    opacity: 0;
+                }
+                .st0 {
+                    transition: 0.25s linear all;
+                    fill:#373435;
+                    stroke:#373435;
+                    stroke-width:2.126;
+                    stroke-miterlimit:22.9256;
+                }
+                .st1 {
+                    transition: 0.25s linear all;
+                    fill-rule:evenodd;
+                    clip-rule:evenodd;
+                    fill:#373435;
+                    stroke:#373435;
+                    stroke-width:2.126;
+                    stroke-miterlimit:22.9256;
+                }
+            }
+        }
+        a {
+            text-decoration: none;
+            color: $main_color;
+            font-size: 0.9em;
+            transition: 0.3s ease-in-out all;
+            @include phone {
+                font-size: 0.7em;
+                color:$main_color;
+            }
+        }
+    }
+    form {
+        @include phone {
+            display: none;
+        }
+    }
+}
+
+.active-burger-parent {
+    z-index: 9999;
+}
+
+
+nav {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include phone {
+    }
+    a {
+        text-decoration: none;
+        color: $main_color;
+        font-size: 0.85em;
+    }
+    .nav-collection-item {
+        text-transform: uppercase;
+        font-size: 0.9em;
+        font-weight: 500;
+        margin-right: 20px;
+        margin-left: 20px;
+        transition: 0.3s linear all;
+        &:hover {
+            color: $terciary_color;
+        }
+    }
+    @include phone {
+        display: none;
+    }
+    
+}
+
+.mobile-nav {
+    display: none;
+    @include phone {
+        width: 100%;
+        height: 100vh;
+        margin-top: 17vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        background-color: $secondary_color;
+        transform: translateX(-110%);
+        z-index: 6;
+        position: fixed;
+        top: 0;
+        left: 0;
+        transition: 0.3s ease-in-out all;
+        padding: 18px 16px;
+        .search-input-mobile {
+            width: 100%;
+            height: 4.5vh;
+            margin-bottom: 20px;
+            form {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                input {
+                    width: 65%;
+                    height: 100%;
+                    background-color: $terciary_color;
+                    border: 0;
+                    padding: 4px;
+                    color: $main_color;
+                }
+                input::placeholder {
+                    color: $main_color;
+                }
+                button {
+                    width: 31%;
+                    height: 100%;
+                    background-color: $main_color;
+                    border: none;
+                    color: $secondary_color;
+                    &:hover {
+                        background-color: $terciary_color;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .mobile-categories {
+            width: 100%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .mobile-category {
+                text-transform: uppercase;
+                text-decoration: none;
+                font-weight: 300;
+                margin-bottom: 6px;
+                letter-spacing: 1px;
+                font-size: 0.9em;
+                color: $main_color;
+            }
+        }
+    }
+}
+.search-input-desktop {
+    width: 35%;
+    height: 50%;
+    @include phone {
+        display: none;
+    }
+    form {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        input {
+            width: 65%;
+            height: 100%;
+            background-color: $main_color;
+            border: 0;
+            padding: 4px 8px;
+            color: $secondary_color;
+            border-radius: 2px;
+        }
+        input::placeholder {
+            color: $secondary_color;
+        }
+        button {
+            width: 31%;
+            height: 100%;
+            background-color: $main_color;
+            border: none;
+            border-radius: 2px;
+            color: $secondary_color;
+            transition: 0.35s linear all;
+            &:hover {
+                background-color: $terciary_color;
+                cursor: pointer;
+            }
+        }
+    }
+}
+.mobile-nav-active {
+    transform: translateX(0%) !important;
+}

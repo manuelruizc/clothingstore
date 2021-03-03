@@ -1,0 +1,50 @@
+
+<div class="search-term-info-container">
+  <span class="search-term-info">Tú búsqueda de "{{ search.terms | escape }}"</span>
+</div>
+
+{% paginate search.results by 10 %}
+  <div class="search-form-container">
+    <form action="/search" method="get" role="search">
+      <input type="search" name="q" value="{{ search.terms | escape }}">
+      <button type="submit">Buscar
+      </button>
+    </form>
+  </div>
+
+  {% if search.performed %}
+    <div class="items-container">
+    {% for item in search.results %}
+      <div class="item-container">
+        {% if item.compare_at_price > 0 %}
+        <span class="discount-tag">En descuento</span>
+        {% endif %}
+      {% if item.featured_image %}
+        <a href="{{ item.url | within: collection }}" title="{{ item.title | escape }}">
+          {{ item.featured_image.src | img_url: 'medium' | img_tag: item.featured_image.alt }}
+        </a>
+        {% endif %}
+        <h5 class="product-thumb-title">{{ item.title | link_to: item.url }}</h5>
+        {% if item.compare_at_price > 0 %}
+        <span class="product-price">
+          <span style="text-decoration: line-through; opacity: 0.56;">${{ item.compare_at_price || money_without_currency }} MXN </span>
+          <span style="color:#d32f2f;">&nbsp;{{item.price_min | | money_without_currency}} MXN</span>
+        </span>
+        {% else %}
+        <span class="product-price">${{item.price_min | | money_without_currency}} MXN</span>
+        {% endif %}
+        <a href="javascript:void(0)" class="add-to-cart-anchor" data-id="{% for variant in item.variants %} {% if forloop.first == true %} {{variant.id}} {% endif %}  {% endfor %}">AGREGAR AL CARRITO</a>
+      </div>
+        {% else %}
+      </div>
+      no results
+    {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if paginate.pages > 1 %}
+    <div class="pagination-container">
+      {{ paginate | default_pagination }}
+    </div>
+  {% endif %}
+{% endpaginate %}

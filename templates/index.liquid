@@ -1,0 +1,209 @@
+{% comment %} {% for product in collections.frontpage.products limit:4 %}
+  <div>
+    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+    {{ product.price | money }}
+    {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+    <a href="{{ product.url | within: collection }}">
+      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
+    </a>
+  </div>
+{% endfor %} {% endcomment %}
+
+{% comment %} <nav>
+    <div class="logo-container"></div>
+    
+    <ul class="nav-links">
+        <li class="nav-link">Inicio</li>
+        <li class="nav-link">Tienda</li>
+        <li class="nav-link">Acerca de nosotros</li>
+        <li class="nav-link">Proyectos</li>
+    </ul>
+
+    <a class="contact-us-link" href="#">Llámanos <span>+52 735 3875 34</span></a>
+
+    <a class="second-cta-btn" href="#">Contáctanos</a>
+</nav> {% endcomment %}
+
+{% comment %} <header>
+    <span class="header-primary-text">El lugar en donde se concentran los mejores productores en cuanto a producción de plantas ornamentales se refiere.</span>
+    <div class="header-description-container">
+        <span class="header-description-text">Más de 20 años de experiencia en el ramo de producción, venta y comercialización de productos ornamentales de primera calidad</span>
+        <a class="first-cta-btn" href="/collections/all">Ver productos</a>
+    </div>
+</header> {% endcomment %}
+
+{% comment %} <div class="main-photo-container"></div> {% endcomment %}
+<section class="main-image-container">
+    <div class="image-opacity"></div>
+    <div class="image-title-container">
+        <h2 id="anchor-title">Nuestros nuevos zapatos</h2>
+        <span>Mira nuestros nuevos modelos y recíbelos en la puerta de tu casa.</span>
+        <a href="#">Ver tenis</a>
+    </div>
+</section>
+<section class="main-image-container secondary-image-container">
+    <div class="image-opacity"></div>
+    <div class="image-title-container">
+        <h2>Nuestros nuevos zapatos</h2>
+        <span>Mira nuestros nuevos modelos y recíbelos en la puerta de tu casa.</span>
+        <a href="#">Ver tenis</a>
+    </div>
+</section>
+
+<section class="about-us-container">
+    <div class="header-title-container">
+        <span class="main-section-text">Acerca de nosotros.</span>
+        <span class="section-subtitle-text text-align-center">Aquí va una frase sexy y pegadora, inspiracional</span>
+        <div class="green-block"></div>
+    </div>
+
+    <div class="description-about-us-container">
+        <div class="text-container">
+            <span class="section-tagline-text custom-width-tagline">Te ayudaremos a construir el jardín de tus sueños.</span>
+            <div class="colored-block">
+                <div class="green-block-horizontal big-block"></div>
+            </div>
+            <div class="section-description-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla cursus vitae leo ac faucibus. Pellentesque sagittis massa quis lobortis hendrerit. Nunc luctus aliquam nisi, ac sollicitudin odio ultrices non. <br> <br> Aenean vestibulum tortor lacus, sit amet pellentesque dui pretium eu. Pellentesque tincidunt nulla ut sodales tempor. Fusce vel pretium mauris. Duis ac sem lectus.</div>
+            <a href="/collections/all" class=" first-cta-btn">Ver productos</a>
+        </div>
+        <div class="about-us-image-container"></div>
+    </div>
+</section>
+
+<section class="store-container">
+    <div class="store-header-container">
+        <div class="store-description-container">
+            <span class="main-section-text">Tienda.</span>
+            <div class="section-tagline-text" style="color:white;">Nuestra ética de trabajo asegura el éxito en tu jardín.</div>
+            <div class="greenblock-horizontal"></div>
+        </div>
+        
+        <a href="/collections/all" class="second-cta-btn second-cta-btn-colored">Visita nuestra tienda</a>
+    </div>
+
+    <div class="store-carousel-container">
+    {% assign coolors = "#E91E63, #673AB7, #2196F3, #009688, #FBC02D, #E64A19, #00B0FF" | split: ", " %}
+    {% for product in collections["hombres"].products %}
+    {% assign currentColorIndex = forloop.index | modulo: 7 %}
+    {% assign currentBackgroundColor = coolors[currentColorIndex] %}
+        <a href="{{product.url}}">
+            <div class="carousel-content" style="background-image: url('{{ product.featured_image.src | img_url: 'large' }}');">
+                <div class="carousel-link-container" style="background-color: {{currentBackgroundColor}};">
+                    <span class="carousel-product-title">{{product.title}}</span>
+                    <span class="carousel-product-price">{{product.price || money}}</span>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
+        {% comment %} <a href="#">
+            <div class="carousel-content" style="">
+                <div class="carousel-link-container">
+                    <span class="carousel-product-title">Planta de sombra lujusubirs</span>
+                    <span class="carousel-product-price">$120.00</span>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="carousel-content" style="">
+                <div class="carousel-link-container">
+                    <span class="carousel-product-title">Planta de sombra lujusubirs</span>
+                    <span class="carousel-product-price">$120.00</span>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="carousel-content" style="">
+                <div class="carousel-link-container">
+                    <span class="carousel-product-title">Planta de sombra lujusubirs</span>
+                    <span class="carousel-product-price">$120.00</span>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="carousel-content" style="">
+                <div class="carousel-link-container">
+                    <span class="carousel-product-title">Planta de sombra lujusubirs</span>
+                    <span class="carousel-product-price">$120.00</span>
+                </div>
+            </div>
+        </a>
+        <a href="#">
+            <div class="carousel-content" style="">
+                <div class="carousel-link-container">
+                    <span class="carousel-product-title">Planta de sombra lujusubirs</span>
+                    <span class="carousel-product-price">$120.00</span>
+                </div>
+            </div>
+        </a> {% endcomment %}
+    </div>
+
+    <div class="carousel-controls-container dots">
+        <a href="#" class="carousel-control arrow-left"><</a>
+        <a href="#" class="carousel-control arrow-right">></a>
+    </div>
+
+</section>
+
+<section class="services-container">
+    <div class="services-header-container">
+        <span class="main-section-text">Servicios.</span>
+        <span class="section-subtitle-text text-align-center">Aquí va una frase sexy y pegadora inspiracional.</span>
+        <span class="green-block"></span>
+    </div>
+    <div class="services-description-container">
+        <div class="services-image-container">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="services-description-text">
+            <span class="section-tagline-text">Hacemos tus tenis únicos e irrepetibles.</span>
+            <div class="single-services-container">
+                <div class="single-service-container">
+                    <span>Escoge tu silueta.</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ut, aperiam sint, et facere eos beatae fuga obcaecati nesciunt, adipisci blanditiis quae excepturi! Facere earum possimus sint reiciendis eaque dolor?</p>
+                </div>
+                <div class="single-service-container">
+                    <span>Escoge los colores.</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ut, aperiam sint, et facere eos beatae fuga obcaecati nesciunt, adipisci blanditiis quae excepturi! Facere earum possimus sint reiciendis eaque dolor?</p>
+                </div>
+                <div class="single-service-container">
+                    <span>Recíbelos en la puerta de tu casa.</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam ut, aperiam sint, et facere eos beatae fuga obcaecati nesciunt, adipisci blanditiis quae excepturi! Facere earum possimus sint reiciendis eaque dolor?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="socialmedia-container">
+    <span class="section-subtitle-text text-align-center custom-socialmedia-title-width">Síguenos en nuestras redes sociales.</span>
+    <div class="sm-container">
+        <a href="#" class="socialmedia-item"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="socialmedia-item"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="socialmedia-item"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</section>
+
+{% comment %} <section class="newsletter-section">
+    <span class="section-subtitle-text text-align-center">Registrate a nuestro newsletter y recibe nuestras promociones.</span>
+    <div class="newsletter-form-container">
+        <input type="email" name="email" placeholder="Ingresa tu correo" id="email" class="newsletter-input">
+        <input type="submit" id="submit-email-newsletter" value="Obtener promociones">
+    </div>
+</section> {% endcomment %}
+
+
+{% comment %} <div class="popup-main-container" id="popup">
+    <div class="popup-quit" id="quit-popup"></div>
+    <div class="popup-container">
+        <span class="section-subtitle-text text-align-center">Registrate a nuestro newsletter y recibe nuestras promociones.</span>
+        <div class="newsletter-form-container">
+            <input type="email" name="email" placeholder="Ingresa tu correo" id="email" class="newsletter-input">
+            <input type="submit" id="submit-email-newsletter" value="Obtener promociones">
+        </div>
+        <div class="popup-quit-btn">
+            <span>X</span>
+        </div>
+    </div>
+</div> {% endcomment %}

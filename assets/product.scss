@@ -1,0 +1,380 @@
+$main_color: #000000;
+$secondary_color: #FFFFFF;
+$terciary_color: #888B8D;
+@mixin phone {
+    @media (max-width: 599px) {
+        @content;
+    }
+}
+@mixin tablet-portrait {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+@mixin tablet-landscape {
+    @media (min-width: 900px) and (max-width: 1100px) {
+        @content;
+    }
+}
+
+.opacity-one {
+    opacity: 1 !important;
+}
+
+.product-description-container {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    padding: 25px 35px;
+    @include phone {
+        flex-direction: column;
+        height: auto;
+    }
+    .zoom-image-container {
+        position: absolute;
+        top: 0;
+        right: 35px;
+        z-index: 4;
+        display: flex;
+        width: 45%;
+        height: 45%;
+        border:1pt solid $secondary_color;
+        display:none;
+    }
+    .product-images-container {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: 0px 10px;
+        position: relative;
+        @include phone {
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .img-zoom-lens {
+            position: absolute;
+            background-color: rgba(72, 193, 173, 0.634);
+            /*set the size of the lens:*/
+            width: 125px;
+            height: 85px;
+            // opacity: 0;
+            display: none;
+        }
+        .product-thumbnails-container {
+            width: 40px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items:center;
+            flex-wrap: wrap;
+            margin-right: 45px;
+            position: absolute;
+            left: 0px;
+            top: 0;
+            @include phone {
+                order: 2;
+                flex-direction: row;
+                justify-content: space-between;
+                width: 80%;
+                height: 10%;
+                margin: 0;
+                position: relative;
+            }
+        }
+        .product-main-image-container {
+            position: relative;
+            width: 93%;
+            height: 100%;
+            .discount-tag {
+                padding: 6px 12px;
+                border-radius: 3px;
+                color:white;
+                background-color:#d32f2f;
+                position: absolute;
+                top:0;
+                right:0;
+                font-size: 0.95rem;
+                z-index: 2;
+            }
+            .product-main-image {
+                width:100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: top;
+                @include phone {
+                    order: 1;
+                    height: 34vh;
+                    margin-bottom: 4vh;
+                }
+                // border: 1pt solid black;
+            }
+        }
+    }
+    .product-info-container {
+        width: 45%;
+        height: 100%;
+        display:flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 40px;
+        @include phone {
+            margin-top: 8%;
+            padding: 10px;
+            width: 100%;
+        }
+        .product-info-header-container {
+            width: 100%;
+            @include phone {
+                display: flex;
+                flex-direction: column; justify-content: center;
+                align-items: center;
+            }
+            h1 {
+                font-size: 1.4em;
+                font-weight:700;
+                margin-bottom: 15px;
+                @include phone {
+                    text-align: center;
+                    font-size: 1.2em;
+                }
+            }
+            .product-info-price {
+                font-size: 1.1em;
+                color: rgba(0, 0, 0, 0.4);
+                font-weight: 600;
+                @include phone {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+                margin-top: 40px;
+                @include phone {
+                    margin-bottom: 60px;
+                }
+                .product-option-container {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 15px;
+                    span {
+                        font-weight: 400;
+                        font-size: 1.1em;
+                        color: rgba(0, 0, 0, 0.6);
+                    }
+                    select, input[type=number] {
+                        width: 55%;
+                        height: 8vh;
+                        padding: 7px;
+                        border: 1pt solid rgba(0, 0, 0, 0.35);
+                        @include phone {
+                            margin-bottom: 2%;
+                        }
+                    }
+                }
+                button {
+                    width: 100%;
+                    height: 10vh;
+                    border: none;
+                    background-color: $main_color;
+                    color: $secondary_color;
+                    font-size: 1.2em;
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    cursor: pointer;
+                }
+            }
+        }
+        .details-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 26px;
+            @include phone {
+                padding: 0px 6px;
+            }
+            h4 {
+                font-size: 1.3em;
+                margin-bottom: 4px;
+            }
+            .details-divider {
+                width: 100%;
+                height: 1.5px;
+                background-color:rgba(0, 0, 0, 0.15);
+                margin-bottom: 15px;
+                @include phone {
+                    margin-bottom: 25px;
+                }
+            }
+            p {
+                width: 100%;
+                text-align: left;
+                font-size: 0.9em;
+            }
+        }
+    }
+}
+
+.related-products-container {
+    width: 100%;
+    height: 40vh;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-top: 12%;
+    @include phone {
+        flex-direction: column;
+        height: auto !important;
+        padding: 12px 0px;
+    }
+    .related-info-container {
+        width: 23.5%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        @include phone {
+            width: 100%;
+        }
+        h3 {
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 1.7em;
+            margin-bottom: 15px;
+            @include phone {
+                text-align: center;
+            }
+        }
+        a {
+            color: black;
+            font-weight: 200;
+            text-transform: uppercase;
+            text-align:left;
+            @include phone {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .related-products-slider-container {
+        width: 76.5%;
+        height: 100%;
+        position: relative;
+        @include phone {
+            width:100%;
+            height: 50vh !important;
+        }
+        .related-products-slider {
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between; 
+            align-items:center;
+            scrollbar-width: none;
+            position: absolute;
+            top: 0; left: 0;
+            -webkit-overflow-scrolling: touch;
+            &::-webkit-scrollbar {
+                display: none;
+            }
+            .related-product-single-container {
+                width: 30%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin-left: 2.5%;
+                flex: 0 0 auto;
+                position: relative;
+                .discount-tag {
+                    padding: 3px 8px;
+                    border-radius: 3px;
+                    color:white;
+                    background-color:#d32f2f;
+                    position: absolute;
+                    top:0;
+                    right:0;
+                    font-size: 0.95rem;
+                    z-index: 2;
+                    @include phone {
+                        font-size: 0.7rem;
+                    }
+                }
+                @include phone {
+                    width: 45%;
+                }
+                img {
+                    width: 100%;
+                    height: 60%;
+                    object-fit: contain;
+                    @include phone {
+                        height: 45%;
+                    }
+                }
+                .related-title {
+                    font-weight: 600;
+                    text-align: center;
+                    font-size: 0.8em;
+                }
+                .related-price {
+                    font-size: 0.9em;
+                    color: rgba(0, 0, 0, 0.5);
+                    @include phone {
+                        font-size: 0.75em;
+                    }
+                }
+                a {
+                    text-transform: uppercase;
+                    letter-spacing: 1.2px;
+                    font-size: 0.88em;
+                    color: black;
+                    font-weight: 300;
+                }
+            }
+        }
+        .scroll-to-left {
+            position: absolute;
+            left: 0;
+            top: 40%;
+            font-weight: 200;
+            font-size: 3em;
+            text-decoration: none;
+            color: black;
+            @include phone {
+                display: none;
+            }
+        }
+        .scroll-to-right {
+            position: absolute;
+            right: 0;
+            top: 40%;
+            font-weight: 200;
+            font-size: 3em;
+            text-decoration: none;
+            color: black;
+            @include phone {
+                display: none;
+            }
+        }
+    }
+}

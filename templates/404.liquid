@@ -1,0 +1,16 @@
+<div class="notfound-container">
+    <div class="notfound-image-container">
+
+    </div>
+    <div class="notfound-info-container">
+        <div class="notfound-info-header">
+            <h1>404 página no encontrada.</h1>
+            <span>La página que buscas no existe.</span>
+            <a href="/collections/all">Sigue comprando</a>
+        </div>
+        <form action="/search" method="get" role="search">
+            <input name="q" value="{{ search.terms | escape }}" type="text" placeholder="Buscar productos...">
+            <button type="submit">Buscar producto</button>
+        </form>
+    </div>
+</div>
