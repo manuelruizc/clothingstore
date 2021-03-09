@@ -1,163 +1,245 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>{{ page_title }} - CamWo</title>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="description" content="{{ page_description | escape }}">
-  <link rel="canonical" href="{{ canonical_url }}">
-  <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
-  {{ content_for_header }} <!-- Header hook for plugins -->
-  {{ 'application.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'google.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'search.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'collection.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'index.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'product.scss.css' | asset_url | stylesheet_tag }}
-  {{ '404.scss.css' | asset_url | stylesheet_tag }}
-  {{ 'faq.scss.css' | asset_url | stylesheet_tag }}
-</head>
-<body>
-  <div class="top-message">
-    <span>Envíos disponibles a toda la República Mexicana.</span>
-  </div>
-  <div class="nav-container">
-    <div class="cartandlogo-container">
-      <div id="menu-burger">
-        <span class="menu-burger"></span>
-      </div>
-      <a href="/" class="logo-container">
-        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	        viewBox="0 0 793.7 425.2" style="enable-background:new 0 0 793.7 425.2;" xml:space="preserve">
-          <g id="XMLID_1471_">
-            <path id="XMLID_1474_" class="st0 letter letter-c" d="M390.3,348.9l23.9,0.6c-1.6,12.8-5.9,22.6-12.9,29.6c-7,7-16.1,10.4-27.4,10.4
+  <head>
+    <title>{{ page_title }} - CamWo</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="{{ page_description | escape }}" />
+    <link rel="canonical" href="{{ canonical_url }}" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+      integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+      crossorigin="anonymous"
+    />
+    {{
+      content_for_header
+    }}
+    <!-- Header hook for plugins -->
+    {{
+      "application.scss.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "google.scss.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "search.scss.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "collection.scss.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "index.scss.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "product.scss.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "404.scss.css" | asset_url | stylesheet_tag
+    }}
+    {{
+      "faq.scss.css" | asset_url | stylesheet_tag
+    }}
+  </head>
+  <body>
+    <div class="top-message">
+      <span>Envíos disponibles a toda la República Mexicana.</span>
+    </div>
+    <div class="nav-container">
+      <div class="cartandlogo-container">
+        <div id="menu-burger">
+          <span class="menu-burger"></span>
+        </div>
+        <a href="/" class="logo-container">
+          <svg
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 793.7 425.2"
+            style="enable-background: new 0 0 793.7 425.2"
+            xml:space="preserve"
+          >
+            <g id="XMLID_1471_">
+              <path
+                id="XMLID_1474_"
+                class="st0 letter letter-c"
+                d="M390.3,348.9l23.9,0.6c-1.6,12.8-5.9,22.6-12.9,29.6c-7,7-16.1,10.4-27.4,10.4
               c-11.4,0-21-4-28.7-11.9c-7.7-7.9-11.6-17.7-11.6-29.5c0-11.8,3.9-21.7,11.8-29.8c7.9-8,17.5-12.1,29.1-12.1
               c11.3,0,20.8,3.9,28.4,11.8c5.3,5.5,9,13.1,11.1,22.8l-24.5,1.7c-2.7-8.7-7.9-13-15.6-13c-4.9,0-8.9,1.7-12.1,5.2
               c-3.2,3.5-4.8,7.9-4.8,13.3c0,5.2,1.6,9.5,4.7,12.9c3.1,3.4,7.1,5.1,11.8,5.1c4.8,0,8.7-1.5,11.6-4.5
-              C388.1,358.8,389.8,354.5,390.3,348.9z"/>
-            <path id="XMLID_1476_" class="st0 letter letter-a" d="M452.9,347.9v20.9h-6.6v18.9h-22.8v-50.4c0-9.8,2.6-17.3,7.7-22.7c5.2-5.4,12.4-8.1,21.7-8.1
+              C388.1,358.8,389.8,354.5,390.3,348.9z"
+              />
+              <path
+                id="XMLID_1476_"
+                class="st0 letter letter-a"
+                d="M452.9,347.9v20.9h-6.6v18.9h-22.8v-50.4c0-9.8,2.6-17.3,7.7-22.7c5.2-5.4,12.4-8.1,21.7-8.1
               c9,0,15.7,2.4,20,7.3c4.3,4.9,6.5,12.4,6.5,22.7v51.2h-22.8V338c0-3.1-0.4-5.2-1.1-6.4c-0.7-1.2-2-1.8-3.8-1.8
-              c-3.6,0-5.3,2.7-5.3,8.2v9.9H452.9z"/>
-            <path id="XMLID_1478_" class="st0 letter letter-m" d="M491.6,387.6v-57.1c0-7.1,2.1-12.9,6.2-17.4c4.2-4.5,9.6-6.7,16.2-6.7
+              c-3.6,0-5.3,2.7-5.3,8.2v9.9H452.9z"
+              />
+              <path
+                id="XMLID_1478_"
+                class="st0 letter letter-m"
+                d="M491.6,387.6v-57.1c0-7.1,2.1-12.9,6.2-17.4c4.2-4.5,9.6-6.7,16.2-6.7
               c7.9,0,13.9,3.7,18.2,11.2c2.6-4,5.4-6.9,8.3-8.6c3-1.7,6.6-2.6,11-2.6c6.9,0,12.2,2.2,15.9,6.7c3.7,4.5,5.5,11,5.5,19.4v55.1
               h-22.8v-51.5c0-2.6-0.2-4.2-0.6-5.1c-0.4-0.8-1.2-1.2-2.4-1.2c-2.3,0-3.4,2-3.4,5.9v51.9h-22.8v-51.5c0-2.5-0.2-4.2-0.6-5
-              c-0.4-0.9-1.2-1.3-2.4-1.3c-2.3,0-3.4,2.1-3.4,6.3v51.5H491.6z"/>
-            <path id="XMLID_1480_" class="st0 letter letter-w" d="M666.5,308.4v57.1c0,7.1-2.1,12.9-6.2,17.4c-4.2,4.5-9.5,6.7-16.1,6.7c-8,0-14-3.7-18.2-11.2
+              c-0.4-0.9-1.2-1.3-2.4-1.3c-2.3,0-3.4,2.1-3.4,6.3v51.5H491.6z"
+              />
+              <path
+                id="XMLID_1480_"
+                class="st0 letter letter-w"
+                d="M666.5,308.4v57.1c0,7.1-2.1,12.9-6.2,17.4c-4.2,4.5-9.5,6.7-16.1,6.7c-8,0-14-3.7-18.2-11.2
               c-2.6,4-5.4,6.9-8.3,8.6c-3,1.7-6.6,2.6-11,2.6c-6.9,0-12.2-2.2-15.9-6.7c-3.7-4.5-5.5-10.9-5.5-19.4v-55.1H608V360
               c0,2.6,0.2,4.2,0.6,5c0.4,0.8,1.2,1.2,2.4,1.2c2.3,0,3.4-2,3.4-5.9v-51.9h22.8V360c0,2.5,0.2,4.1,0.6,5c0.4,0.9,1.2,1.3,2.4,1.3
-              c2.3,0,3.4-2.1,3.4-6.3v-51.5H666.5z"/>
-            <path id="XMLID_1482_" class="st0 letter letter-o" d="M716.7,306.5c10.9,0,20.2,4.1,28,12.2c7.8,8.2,11.7,17.9,11.7,29.3
+              c2.3,0,3.4-2.1,3.4-6.3v-51.5H666.5z"
+              />
+              <path
+                id="XMLID_1482_"
+                class="st0 letter letter-o"
+                d="M716.7,306.5c10.9,0,20.2,4.1,28,12.2c7.8,8.2,11.7,17.9,11.7,29.3
               c0,11.6-3.9,21.4-11.8,29.5c-7.8,8.1-17.4,12.1-28.6,12.1c-11.1,0-20.6-4.1-28.5-12.2c-7.9-8.1-11.8-17.9-11.8-29.4
               c0-11.6,4-21.4,11.9-29.5C695.5,310.5,705.2,306.5,716.7,306.5z M716,329.8c-4.7,0-8.7,1.8-12,5.3c-3.3,3.6-5,7.9-5,12.9
               s1.7,9.3,5,12.9c3.3,3.6,7.3,5.3,12,5.3c4.7,0,8.7-1.8,12-5.3c3.3-3.5,4.9-7.8,4.9-12.9s-1.6-9.4-4.9-12.9
-              C724.7,331.6,720.7,329.8,716,329.8z"/>
-          </g>
-          <path id="XMLID_1487_" class="st1" d="M222.1,9.4C108.6,104.6,54.3,159.5,21,213c33.3,82.1,87.5,137.1,201,203.6
+              C724.7,331.6,720.7,329.8,716,329.8z"
+              />
+            </g>
+            <path
+              id="XMLID_1487_"
+              class="st1"
+              d="M222.1,9.4C108.6,104.6,54.3,159.5,21,213c33.3,82.1,87.5,137.1,201,203.6
             c20.4-66.5,74.7-121.5,201-203.6C296.7,159.5,242.5,104.6,222.1,9.4z M117.6,208.6c8.5-58.3,43.9-95.2,106.1-110.4
-            c-83,81.4-78.9,158,12.1,229.7C161.1,307.4,121.7,267.7,117.6,208.6z"/>
-        </svg>
-      </a>
-      {% if template.name != "search" %}
+            c-83,81.4-78.9,158,12.1,229.7C161.1,307.4,121.7,267.7,117.6,208.6z"
+            />
+          </svg>
+        </a>
+        {% if template.name != "search" %}
         <div class="search-input-desktop">
           <form action="/search" method="get" role="search">
-            <input type="search" placeholder="Busca lo que necesitas" name="q" value="{{ search.terms | escape }}">
+            <input
+              type="search"
+              placeholder="Busca lo que necesitas"
+              name="q"
+              value="{{ search.terms | escape }}"
+            />
             <button type="submit">Buscar</button>
           </form>
-        </div>      
+        </div>
         {% endif %}
-        <a href="#" id="carrito"><i class="fas fa-shopping-cart"></i> (<span id="cart-count-nav">0</span>)</a>
+        <a href="#" id="carrito"
+          ><i class="fas fa-shopping-cart"></i> (<span id="cart-count-nav"
+            >0</span
+          >)</a
+        >
+      </div>
     </div>
-  </div>
 
-  <div class="mobile-nav">
-    <div class="search-input-mobile">
-      <form action="/search" method="get" role="search">
-        <input type="search" placeholder="Busca lo que necesitas" name="q" value="{{ search.terms | escape }}">
-        <button type="submit">Buscar</button>
-      </form>
+    <div class="mobile-nav">
+      <div class="search-input-mobile">
+        <form action="/search" method="get" role="search">
+          <input
+            type="search"
+            placeholder="Busca lo que necesitas"
+            name="q"
+            value="{{ search.terms | escape }}"
+          />
+          <button type="submit">Buscar</button>
+        </form>
+      </div>
+      <div class="mobile-categories">
+        {% for collection in collections%} {%if collection.title != "Inicio" %}
+        <a class="mobile-category" href="{{ collection.url }}">{{
+          collection.title
+        }}</a>
+        {% endif %} {% endfor %}
+      </div>
     </div>
-    <div class="mobile-categories">
-      {% for collection in collections%}
-        {%if collection.title != "Inicio" %}
-          <a class="mobile-category" href="{{collection.url}}">{{collection.title}}</a>
-        {% endif %}
 
-      {% endfor %}
-    </div>
-  </div>
-
-  <nav>
-    {% for collection in collections%}
-      {%if collection.title != "Inicio" %}
-        <a class="nav-collection-item" href="
-        {{collection.url}}">{{collection.title}}</a>
-      {% endif %}
-
-    {% endfor %}
-
-      {% comment %}
-      {% for link in linklists.main-menu.links %}
-        {% assign child_list_handle = link.title | handleize %}
-        {% if linklists[child_list_handle].links != blank %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-          [{% for childlink in linklists[child_list_handle].links %}
-            <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
-          {% endfor %}]
-        {% else %}
-          <a href="{{ link.url }}">{{ link.title }}</a>
-        {% endif %}
-      {% endfor %}
-      {% endcomment %}
+    <nav>
+      {% for collection in collections%} {%if collection.title != "Inicio" %}
+      <a
+        class="nav-collection-item"
+        href="
+        {{ collection.url }}"
+        >{{ collection.title }}</a
+      >
+      {% endif %} {% endfor %} {% comment %} {% for link in
+      linklists.main-menu.links %} {% assign child_list_handle = link.title |
+      handleize %} {% if linklists[child_list_handle].links != blank %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      [{% for childlink in linklists[child_list_handle].links %}
+      <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+      {% endfor %}] {% else %}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endif %} {% endfor %} {% endcomment %}
     </nav>
 
-  {% if shop.customer_accounts_enabled %}
-    {% if customer %}
-      <a href="/account">account</a>
-      {{ 'log out'  | customer_logout_link }}
+    {% if shop.customer_accounts_enabled %} {% if customer %}
+    <a href="/account">account</a>
+    {{ "log out" | customer_logout_link }}
     {% else %}
-      {{ 'log in ' | customer_login_link }}
-      {{ 'register' | customer_register_link }}
-    {% endif %}
-  {% endif %}
+    {{ "log in " | customer_login_link }}
+    {{ "register" | customer_register_link }}
+    {% endif %} {% endif %}
 
-  <main role="main">
-    {{ content_for_layout }}
-  </main>
+    <main role="main">
+      {{ content_for_layout }}
+    </main>
 
-
-
-  {% include 'fixed-cart' %}
- <footer class="seo-footer">
-    <div class="logo-footer-container"></div>
-    <div class="footer-column-container">
+    {% include 'fixed-cart' %}
+    <footer class="seo-footer">
+      <div class="logo-footer-container"></div>
+      <div class="footer-column-container">
         <span class="footer-title">Productos</span>
-        <a href="#" class="footer-item"><span>Plantas de sol</span></a>
-        <a href="#" class="footer-item"><span>Plantas de sombra</span></a>
-        <a href="#" class="footer-item"><span>Plantas de ornato</span></a>
-        <a href="#" class="footer-item"><span>Selección Rómen</span></a>
-    </div>
-    <div class="footer-column-container">
+        <a href="/collections/accesorios" class="footer-item"
+          ><span>Accesorios</span></a
+        >
+        <a href="/collections/damas" class="footer-item"><span>Damas</span></a>
+        <a href="/collections/hombres" class="footer-item"
+          ><span>Hombres</span></a
+        >
+        <a href="/collections/ninas" class="footer-item"><span>Niñas</span></a>
+        <a href="/collections/ninos" class="footer-item"><span>Niños</span></a>
+      </div>
+      <div class="footer-column-container">
         <span class="footer-title">Información</span>
-        <a href="/pages/preguntas-frecuentes" class="footer-item"><span>Preguntas Frecuentes</span></a>
-        <a href="#" class="footer-item"><span>Viveros</span></a>
-        <a href="#" class="footer-item"><span>Aviso de privacidad</span></a>
-    </div>
-    <div class="footer-column-container">
+        <a href="/pages/preguntas-frecuentes" class="footer-item"
+          ><span>Preguntas Frecuentes</span></a
+        >
+        <a href="/pages/aviso-de-privacidad" class="footer-item"
+          ><span>Aviso de privacidad</span></a
+        >
+      </div>
+      <div class="footer-column-container">
         <span class="footer-title">Compras</span>
-        <a href="#" class="footer-item"><span>Políticas de cambios</span></a>
-        <a href="#" class="footer-item"><span>Formas de pago</span></a>
-        <a href="#" class="footer-item"><span>Devoluciones</span></a>
+        <a href="/pages/politicas-de-cambios" class="footer-item"
+          ><span>Políticas de cambios</span></a
+        >
+        <a href="/pages/formas-de-pago" class="footer-item"
+          ><span>Formas de pago</span></a
+        >
+        <a href="/pages/devoluciones" class="footer-item"
+          ><span>Devoluciones</span></a
+        >
+      </div>
+    </footer>
+    <div class="small-footer">
+      <small>CamWo <span id="year"></span></small>
     </div>
-</footer>
-<div class="small-footer">
-  <small>CamWo 2020</small>
-</div>
-
-
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  {{ 'application.js' | asset_url | script_tag }}
-</body>
+    <script>
+      document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {{ "application.js" | asset_url | script_tag }}
+  </body>
 </html>

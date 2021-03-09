@@ -1,83 +1,92 @@
 $main_color: #000000;
-$secondary_color: #FFFFFF;
-$terciary_color: #888B8D;
+$secondary_color: #ffffff;
+$terciary_color: #888b8d;
 
 .notfound-container {
-    width: 100%;
-    height: 90vh;
-    padding: 30px 60px;
+  width: 100%;
+  height: 90vh;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  .notfound-image-container {
+    width: 50%;
+    height: 100%;
+    background-image: url("https://i2.wp.com/acropolismultimedios.mx/wp-content/uploads/2019/10/3-VIVERO.jpg?fit=1215%2C810&ssl=1");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .notfound-info-container {
+    width: 50%;
+    height: 100%;
+    padding: 40px 40px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-start;
-    .notfound-image-container {
-        width: 50%;
-        height: 100%;
-        background-image: url('https://i2.wp.com/acropolismultimedios.mx/wp-content/uploads/2019/10/3-VIVERO.jpg?fit=1215%2C810&ssl=1');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
+    .notfound-info-header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      h1 {
+        font-size: 1.8em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+      }
+      span {
+        font-weight: 400;
+        margin-bottom: 15px;
+      }
+      a {
+        color: rgba(0, 0, 0, 0.8);
+        font-weight: 500;
+        text-transform: uppercase;
+        font-size: 0.8em;
+      }
     }
-    .notfound-info-container {
-        width: 50%;
+    form {
+      width: 100%;
+      height: 10vh;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      input[type="text"] {
+        width: 60%;
         height: 100%;
-        padding: 40px 40px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: flex-start;
-        .notfound-info-header {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            h1 {
-                font-size: 1.8em;
-                font-weight: 700;
-                text-transform: uppercase;
-                margin-bottom: 15px;
-            }
-            span {
-                font-weight: 400;
-                margin-bottom: 15px;
-            }
-            a {
-                color: rgba(0, 0, 0, 0.8);
-                font-weight: 500;
-                text-transform: uppercase;
-                font-size: 0.8em;
-            }
+        outline: none;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.1);
+        color: black;
+        font-weight: 600;
+        padding: 20px 30px;
+        &::placeholder {
+          color: rgba(0, 0, 0, 0.37);
+          font-size: 1.1em;
         }
-        form {
-            width: 100%;
-            height: 10vh;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            input[type=text] {
-                width: 60%;
-                height: 100%;
-                outline: none;
-                border: none;
-                background-color: rgba(0, 0, 0, 0.1);
-                color: black;
-                font-weight: 600;
-                padding: 20px 30px;
-                &::placeholder {
-                    color: rgba(0, 0, 0, 0.37);
-                    font-size: 1.1em;
-                }
-            }
-            button {
-                width: 40%;
-                height: 100%;
-                border: none;
-                background-color: $main_color;
-                font-weight: 600;
-                font-size: 1.1em;
-                cursor: pointer;
-
-            }
+        &:focus {
+          border: 3pt solid black;
         }
+      }
+      button {
+        width: 40%;
+        height: 100%;
+        border: none;
+        background-color: $main_color;
+        font-weight: 600;
+        font-size: 1.1em;
+        cursor: pointer;
+        color: white !important;
+        transition: 0.25s ease-in-out all;
+        &:hover {
+          border: 3pt solid black;
+          background-color: white;
+          color: black !important;
+        }
+      }
     }
+  }
 }
